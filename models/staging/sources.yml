@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: raw
+    database: shopflow-dbt
     schema: dbt_dev
     description: "Données brutes chargées via dbt seed"
     tables:
