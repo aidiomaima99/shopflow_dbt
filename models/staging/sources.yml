@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: raw
-    schema: dbt_dev
+    schema: dbt_oaidi
     description: "Données brutes chargées via dbt seed"
     tables:
       - name: raw_orders
