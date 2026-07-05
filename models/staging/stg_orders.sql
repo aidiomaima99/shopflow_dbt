@@ -5,12 +5,11 @@ WITH source AS (
 )
 
 SELECT
-    id                              AS order_id,
+    id                            AS order_id,
     customer_id,
-    LOWER(status)                   AS status,
-    ROUND(amount / 100.0, 2)        AS amount_eur,
-    created_at::timestamp           AS created_at
-
+    LOWER(status)                 AS status,
+    ROUND(amount / 100.0, 2)      AS amount_eur,
+    CAST(created_at AS TIMESTAMP) AS created_at
 FROM source
 WHERE
     status NOT IN ('draft', 'test')
