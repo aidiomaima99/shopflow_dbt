@@ -1,0 +1,6 @@
+id,email,first_name,last_name,country,created_at,is_deleted
+1,alice@gmail.com,Alice,Martin,France,2024-01-01 08:00:00,false
+2,bob@gmail.com,Bob,Dupont,Maroc,2024-01-02 09:00:00,false
+3,carol@gmail.com,Carol,Smith,France,2024-01-03 10:00:00,false
+4,david@gmail.com,David,Jones,Espagne,2024-01-04 11:00:00,false
+5,deleted@gmail.com,Test,User,France,2024-01-05 12:00:00,true
