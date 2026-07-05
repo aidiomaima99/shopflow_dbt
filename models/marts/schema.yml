@@ -17,15 +17,22 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values: ['placed', 'shipped', 'delivered', 'returned', 'cancelled']
+              arguments:
+                values:
+                  - placed
+                  - shipped
+                  - delivered
+                  - returned
+                  - cancelled
 
       - name: customer_id
         description: "Clé étrangère vers dim_customers"
         tests:
           - not_null
           - relationships:
-              to: ref('dim_customers')
-              field: customer_id
+              arguments:
+                to: "{{ ref('dim_customers') }}"
+                field: customer_id
 
       - name: order_amount
         description: "Montant HT en euros"
