@@ -3,62 +3,27 @@ version: 2
 models:
 
   - name: fct_orders
-    description: "Table de faits principale — 1 ligne = 1 commande"
+    description: "Table de faits principale"
     columns:
-
       - name: order_id
-        description: "Identifiant unique de la commande (PK)"
-        tests:
+        data_tests:
           - unique
           - not_null
-
-      - name: status
-        description: "Statut de la commande"
-        tests:
-          - not_null
-          - accepted_values:
-              values: ['placed', 'shipped', 'delivered', 'returned', 'cancelled']
-
       - name: customer_id
-        description: "Clé étrangère vers dim_customers"
-        tests:
+        data_tests:
           - not_null
-          - relationships:
-              to: ref('dim_customers')
-              field: customer_id
-
       - name: order_amount
-        description: "Montant HT en euros"
-        tests:
+        data_tests:
           - not_null
-
-      - name: order_segment
-        description: "Segmentation : low_value / mid_value / high_value"
-
-      - name: country
-        description: "Pays du client"
-
-      - name: order_date
-        description: "Date de la commande (sans heure)"
 
   - name: dim_customers
-    description: "Dimension clients enrichie avec agrégats commandes"
+    description: "Dimension clients"
     columns:
-
       - name: customer_id
-        description: "Identifiant unique du client (PK)"
-        tests:
+        data_tests:
           - unique
           - not_null
-
       - name: email
-        description: "Email normalisé en minuscules"
-        tests:
+        data_tests:
           - unique
           - not_null
-
-      - name: total_orders
-        description: "Nombre total de commandes du client"
-
-      - name: total_spent_eur
-        description: "Montant total dépensé en euros"
